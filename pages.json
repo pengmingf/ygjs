@@ -1,0 +1,72 @@
+{
+    "pages": [ //pages数组中第一项表示应用启动页,
+        {
+            "path" : "pages/food/food_menu/index",
+            "style" : {
+				"navigationBarTitleText":"食堂"
+			}
+        },{
+            "path": "pages/login/login",
+            "style": {
+                "navigationBarTitleText": "登录"
+            }
+        },{
+            "path": "pages/main/main",
+            "style": {
+                "navigationBarTitleText": "首页",
+				"app-plus":{
+					"titleNView":{
+						"buttons":[{
+							"text": "消息",
+							"redDot": true ,
+							"fontSize":"16",
+							"badgeText":"1"
+						}]
+					}
+				}
+            }
+        },  {
+            "path": "pages/reg/reg",
+            "style": {
+                "navigationBarTitleText": "注册"
+            }
+        }, {
+            "path": "pages/pwd/pwd",
+            "style": {
+                "navigationBarTitleText": "找回密码"
+            }
+        }, {
+            "path": "pages/user/user",
+            "style": {
+                "navigationBarTitleText": "个人中心"
+            }
+        }
+        
+    ],
+    "tabBar": {
+        "color": "#7a7e83",
+        "selectedColor": "#0faeff",
+        "backgroundColor": "#ffffff",
+        "list": [{
+            "pagePath": "pages/main/main",
+            "text": "身体数据",
+            "iconPath": "static/img/home.png",
+            "selectedIconPath": "static/img/homeHL.png"
+        }, {
+            "pagePath": "pages/food/food_menu/index",
+            "text": "食堂",
+            "iconPath": "static/img/tab-cart.png",
+            "selectedIconPath": "static/img/tab-cart-current.png"
+        },{
+            "pagePath": "pages/user/user",
+            "text": "个人中心",
+            "iconPath": "static/img/user.png",
+            "selectedIconPath": "static/img/userHL.png"
+        }]
+    },
+    "globalStyle": {
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "#0faeff",
+        "backgroundColor": "#fbf9fe"
+    }
+}
