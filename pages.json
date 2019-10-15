@@ -40,8 +40,26 @@
             "style": {
                 "navigationBarTitleText": "个人中心"
             }
-        }
+        } 
+		,{
+            "path": "pages/user/user_show",
+            "style": {
+                "navigationBarTitleText": "说明"
+            }
+		}
         
+        ,{
+            "path" : "pages/msg/msg",
+            "style" : {
+				"navigationBarTitleText": "通知"
+			}
+        }
+        ,{
+            "path" : "pages/userManage/userManage",
+            "style" : {
+				"navigationBarTitleText": "账号管理"
+			}
+        }
     ],
     "tabBar": {
         "color": "#7a7e83",

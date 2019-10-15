@@ -57,9 +57,6 @@
 
 <script>
 	import uCharts from '../../components/u-charts/u-charts.js';
-    import {
-        mapState
-    } from 'vuex'
 	var _self;
 	var canvasObj = {};
 	var tuser_id;
@@ -77,33 +74,18 @@
 				sliderMax: 50
 			}
 		},
-        computed: mapState(['forcedLogin', 'hasLogin', 'userName']),
         onLoad() {
 			_self = this;
-            if (!this.hasLogin) {
+            if (!uni.getStorageSync('tuser_id')) {
                 uni.showModal({
                     title: '未登录',
                     content: '您未登录，需要登录后才能继续',
-                    /**
-                     * 如果需要强制登录，不显示取消按钮
-                     */
-                    showCancel: !this.forcedLogin,
+                    showCancel: false,
                     success: (res) => {
-                        if (res.confirm) {
-							/**
-							 * 如果需要强制登录，使用reLaunch方式
-							 */
-                            if (this.forcedLogin) {
-                                uni.reLaunch({
-                                    url: '../login/login'
-                                });
-                            } else {
-                                uni.navigateTo({
-                                    url: '../login/login'
-                                });
-                            }
-                        }
-                    }
+						uni.reLaunch({
+							url: '../login/login'
+						});
+					}
                 });
             }
 			this.tuser_id = uni.getStorageSync('tuser_id');
@@ -117,12 +99,21 @@
 		},
 		/*这里设置右上角消息触碰事件*/
 		onNavigationBarButtonTap(e) {
-			uni.showToast({
-				title: e.index === 0 ? '你点了消息按钮' : '你点了关注按钮', 
-				icon: 'none'
+			uni.showLoading({
+				title:"跳转中，请稍后"
 			});
-			// 取消红点或者角标 
-			this.setStyle(e.index,false,"");
+			uni.navigateTo({
+				url:"../msg/msg",
+				success: () => {
+					// 取消红点或者角标 
+					this.setStyle(e.index,false,"");
+				},
+				complete: () => {
+					uni.hideLoading();
+				}
+			})
+			
+			
 		},
 		
 		methods:{
@@ -132,16 +123,15 @@
 					title: "正在加载数据..."
 				})
 				uni.request({
-					url: 'http://ygjs.mfmeat.top/index.php/api/main/data',
+					url: 'https://ygjs.mfmeat.top/index.php/api/main/data',
 					data: {"tuser_id":_self.tuser_id,"body_id":_self.body_id},
 					method:"post",
 					dataType:"json",
 					success: function(res) {
-						// console.log(res.data);
 						_self.fillData(res.data);
 					},
 					fail: () => {
-						_self.tips = "网络错误，小程序端请检查合法域名";
+						_self.tips = "网络错误，请稍后重试";
 					},
 					complete() {
 						uni.hideLoading();

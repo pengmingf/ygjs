@@ -17,6 +17,16 @@
 	page {
 		min-height: 100%;
 		display: flex;
+		src: url('https://at.alicdn.com/t/font_702773_g9f89om4v3j.ttf') format('truetype');
+		src: url('https://at.alicdn.com/t/font_1078604_w4kpxh0rafi.ttf') format('truetype1');
+	}
+	
+	.yticon {
+		font-family: "yticon" !important;
+		font-size: 16px;
+		font-style: normal;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
 
 	/* #ifdef MP-BAIDU */

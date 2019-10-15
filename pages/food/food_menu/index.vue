@@ -74,10 +74,10 @@ export default {
             //     }
             // ];
 			uni.request({
-				url:"http://ygjs.mfmeat.top/index.php/api/food/menu",
+				url:"https://ygjs.mfmeat.top/index.php/api/food/menu",
 				dataType:"json",
 				success: (res) => {
-					console.log(res.data);
+					// console.log(res.data);
 					res.data.forEach(item => { 
 						this.productList.push(item);
 					})
@@ -96,7 +96,7 @@ export default {
     onLoad() {
         this.loadData();
         setTimeout(()=> {
-            this.renderImage = true;
+            this.renderImage = true; 
         }, 300);
     },
     onPullDownRefresh() {

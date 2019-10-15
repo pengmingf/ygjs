@@ -5,7 +5,10 @@
     "pages/main/main",
     "pages/reg/reg",
     "pages/pwd/pwd",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/user/user_show",
+    "pages/msg/msg",
+    "pages/userManage/userManage"
   ],
   "window": {
     "navigationBarTextStyle": "white",
@@ -43,7 +46,7 @@
     "alwaysShowBeforeRender": true,
     "autoclose": false
   },
-  "appname": "login",
+  "appname": "健身",
   "compilerVersion": "2.3.3",
   "usingComponents": {}
 }

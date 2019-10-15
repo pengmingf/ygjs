@@ -1,0 +1,2 @@
+setCssToHead(["wx-view{ font-size: ",[0,18],"; }\n",],undefined,{path:"./pages/user/user_show.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/user/user_show.wxml') } }));

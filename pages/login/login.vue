@@ -110,7 +110,7 @@
                 };
 				
                 uni.request({
-                	url:'http://ygjs.mfmeat.top/index.php/api/login/login',
+                	url:'https://ygjs.mfmeat.top/index.php/api/login/login',
                 	data:{'account':data.account,'password':data.password},
                 	method:'POST',
                 	dataType:'json',
